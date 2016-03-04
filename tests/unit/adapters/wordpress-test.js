@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('adapter:wordpress', 'Unit | Adapter | wordpress', {
+moduleFor('adapter:application', 'Unit | Adapter | wordpress', {
   // Specify the other units that are required for this test.
   // needs: ['serializer:foo']
 });
