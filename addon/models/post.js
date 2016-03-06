@@ -12,5 +12,7 @@ export default Model.extend({
 	format: attr(),
 	categories: hasMany('category', {async: true}),
 	tags: hasMany('tag', {async: true}),
-	acf: attr()
+	// Support common WP API plugins
+	acf: attr(),
+	better_featured_image: DS.attr()
 });
