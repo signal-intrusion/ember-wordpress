@@ -36,5 +36,28 @@ export default DS.RESTSerializer.extend({
 			resourceHash.excerpt = resourceHash.excerpt.rendered;
 		}
 		return this._super(modelClass, resourceHash, prop);
+	},
+
+	serialize(snapshot, options) {
+		let json = this._super(...arguments);
+
+		json.title = {
+			rendered: snapshot.record.get('title')
+		};
+
+		json.excerpt = {
+			rendered: snapshot.record.get('excerpt')
+		};
+
+		return json;
+	},
+
+	extractRelationship(relationshipModelName, resourceHash) {
+		if (!!resourceHash && relationshipModelName === 'media') {
+			resourceHash.media_type = resourceHash.type;
+			resourceHash.type = 'media';
+		}
+
+		return this._super(...arguments);
 	}
 });

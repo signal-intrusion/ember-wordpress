@@ -2,5 +2,8 @@
 'use strict';
 
 module.exports = {
-	name: 'ember-wordpress'
+	name: 'ember-wordpress',
+	isDevelopingAddon() {
+		return true;
+	}
 };
